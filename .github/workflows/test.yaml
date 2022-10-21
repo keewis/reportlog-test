@@ -1,0 +1,32 @@
+name: "reportlog tests"
+on:
+  workflow_dispatch:
+
+
+jobs:
+  ci:
+    name: CI to test the reportlog action
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+
+    steps:
+      - name: clone the repository
+        uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python
+        with:
+          python-version: "3.10"
+          cache: pip
+      - name: install dependencies
+        run: |
+          pip install pytest pytest-reportlog
+      - name: run the tests
+        run: |
+          pytest --report-log=pytest-log.jsonl
+      - name: generate the report
+        if: failure()
+        uses: xarray-contrib/issue-from-pytest-log@main
+        with:
+          log-path: pytest-log.jsonl
