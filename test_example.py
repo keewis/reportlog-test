@@ -33,3 +33,8 @@ def failing_fixture():
 
 def test_error(failing_fixture):
     pass
+
+
+@pytest.mark.parametrize("failure", range(200))
+def test_parametrized_failure(param):
+    raise ValueError("invalid value: {param}. Try something else.")
