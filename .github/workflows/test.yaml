@@ -29,6 +29,6 @@ jobs:
           pytest --report-log=pytest-log.jsonl
       - name: generate the report
         if: failure()
-        uses: xarray-contrib/issue-from-pytest-log@use-login-shell
+        uses: xarray-contrib/issue-from-pytest-log@main
         with:
           log-path: pytest-log.jsonl
