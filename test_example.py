@@ -1,4 +1,13 @@
 import pytest
+import warnings
+
+
+class CustomWarning(Warning):
+    pass
+
+
+def warning_func():
+    warnings.warn("some warning", CustomWarning, stacklevel=2)
 
 
 def test_pass():
@@ -22,6 +31,17 @@ def test_xfail():
 @pytest.mark.xfail(reason="xpassed")
 def test_xpass():
     pass
+
+def test_warning():
+    warnings.warn("warns something", UserWarning)
+
+
+def test_custom_warning():
+    warnings.warn("warns something", CustomWarning)
+
+
+def test_nested_warning():
+    warning_func()
 
 
 @pytest.fixture
