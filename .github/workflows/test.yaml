@@ -32,3 +32,4 @@ jobs:
         uses: keewis/issue-from-pytest-log@assignees
         with:
           log-path: pytest-log.jsonl
+          assignees: "keewis"
