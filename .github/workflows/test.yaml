@@ -9,8 +9,10 @@ jobs:
   ci:
     name: CI to test the reportlog action
 
-    matrix:
-      os: ["ubuntu-latest", "windows-latest", "macos-latest"]
+    strategy:
+      matrix:
+        fail-fast: false
+        os: ["ubuntu-latest", "windows-latest", "macos-latest"]
 
     runs-on: ${{matrix.os}}
 
