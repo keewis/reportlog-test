@@ -10,14 +10,11 @@ jobs:
     name: CI to test the reportlog action
 
     strategy:
+      fail-fast: false
       matrix:
-        fail-fast: false
         os: ["ubuntu-latest", "windows-latest", "macos-latest"]
 
     runs-on: ${{matrix.os}}
-
-    strategy:
-      fail-fast: false
 
     steps:
       - name: clone the repository
