@@ -35,4 +35,4 @@ jobs:
         uses: keewis/issue-from-pytest-log@query-by-title
         with:
           log-path: pytest-log.jsonl
-          issue-title: "⚠️ Nightly upstream-dev CI: ${{matrix.os}} failed ⚠️"
+          issue-title: "CI: ${{matrix.os}} failed"
