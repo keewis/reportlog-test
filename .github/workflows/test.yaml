@@ -36,3 +36,4 @@ jobs:
         uses: xarray-contrib/issue-from-pytest-log@main
         with:
           log-path: pytest-log.jsonl
+          issue-title: "⚠️ Nightly upstream-dev CI: ${{matrix.os}} failed ⚠️"
