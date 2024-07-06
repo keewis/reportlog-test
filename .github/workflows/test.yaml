@@ -32,7 +32,7 @@ jobs:
           pytest --report-log=pytest-log.jsonl
       - name: generate the report
         if: failure()
-        uses: xarray-contrib/issue-from-pytest-log@main
+        uses: keewis/issue-from-pytest-log@query-by-title
         with:
           log-path: pytest-log.jsonl
           issue-title: "⚠️ Nightly upstream-dev CI: ${{matrix.os}} failed ⚠️"
