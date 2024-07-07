@@ -9,12 +9,7 @@ jobs:
   ci:
     name: CI to test the reportlog action
 
-    strategy:
-      fail-fast: false
-      matrix:
-        os: ["ubuntu-latest", "windows-latest", "macos-latest"]
-
-    runs-on: ${{matrix.os}}
+    runs-on: "ubuntu-latest"
 
     steps:
       - name: clone the repository
@@ -35,4 +30,4 @@ jobs:
         uses: keewis/issue-from-pytest-log@query-by-title
         with:
           log-path: pytest-log.jsonl
-          issue-title: "CI: ${{matrix.os}} failed"
+          issue-title: "CI: failed"
