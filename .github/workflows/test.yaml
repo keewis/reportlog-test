@@ -11,6 +11,9 @@ jobs:
 
     runs-on: "ubuntu-latest"
 
+    permissions:
+      issues: write
+
     steps:
       - name: clone the repository
         uses: actions/checkout@v4
@@ -27,7 +30,7 @@ jobs:
           pytest --report-log=pytest-log.jsonl
       - name: generate the report
         if: failure()
-        uses: keewis/issue-from-pytest-log@github-script
+        uses: scientific-python/issue-from-pytest-log-action@main
         with:
           log-path: pytest-log.jsonl
           issue-title: "CI: failed"
