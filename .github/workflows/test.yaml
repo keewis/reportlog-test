@@ -30,7 +30,7 @@ jobs:
           pytest --report-log=pytest-log.jsonl
       - name: generate the report
         if: failure()
-        uses: keewis/issue-from-pytest-log@improved-cli
+        uses: keewis/issue-from-pytest-log@missing-reportlog
         with:
-          log-path: pytest-log.jsonl
+          log-path: pytest-log2.jsonl
           issue-title: "CI: failed"
