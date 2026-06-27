@@ -32,5 +32,5 @@ jobs:
         if: failure()
         uses: keewis/issue-from-pytest-log@missing-reportlog
         with:
-          log-path: pytest-log2.jsonl
+          log-path: pytest-log.jsonl
           issue-title: "CI: failed"
